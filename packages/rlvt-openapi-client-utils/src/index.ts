@@ -2,7 +2,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import { of } from 'await-of'
 import { Tokens, getClientOptions, ClientType } from './types'
-import { basePathForClient, GATEWAY_ENDPOINT, verifyTokenValidity, standaloneAxios, clientDefaults } from './utils'
+import { basePathForClient, verifyTokenValidity, standaloneAxios, clientDefaults } from './utils'
 
 
 const createAxiosClient = (options: getClientOptions) => {
@@ -12,7 +12,7 @@ const createAxiosClient = (options: getClientOptions) => {
   }
   // create specific axios instance for this client
   const axiosInstance = axios.create({
-    baseURL: `${GATEWAY_ENDPOINT}${basePathForClient[options.type]}`
+    baseURL: `${options.gatewayEndpoint}${basePathForClient[options.type]}`
   })
   axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
     config.headers = Object.assign(config.headers, {
@@ -25,14 +25,14 @@ const createAxiosClient = (options: getClientOptions) => {
     if (error.response?.status === 401) {
       const [ tokens, renewTokenError ] = await of(options.onAuthenticationRequired({
         currentTokens,
-        authentication: options.authenticationType,
+        options,
         request: error.config
       }))
       if (tokens === undefined) {
         options.onAuthenticationFailure(renewTokenError ?? new Error('authentication_failure'))
         return error.response
       }
-      const [ profile, profileError ] = await of(verifyTokenValidity(tokens))
+      const [ profile, profileError ] = await of(verifyTokenValidity(`${options.gatewayEndpoint}/v1/profile`, tokens))
       if (profile === undefined) {
         options.onAuthenticationFailure(profileError ?? new Error('authentication_failure'))
         return error.response

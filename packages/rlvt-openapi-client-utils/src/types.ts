@@ -4,10 +4,11 @@ import type { SerializedUser } from '@rlvt/entity-manager-openapi-client'
 
 export type getClientOptions = {
   type: ClientType,
+  gatewayEndpoint: string
   authenticationType: AuthenticationType,
   onAuthenticationRequired: (options: {
     currentTokens: Partial<Tokens>,
-    authentication: AuthenticationType,
+    options: getClientOptions,
     request: AxiosRequestConfig
   }) => Promise<Tokens>,
   onAuthenticationFailure: (error: Error) => void,
