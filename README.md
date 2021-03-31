@@ -7,6 +7,10 @@ Here are the different SDKs and their corresponding API:
   - This client allows to interact with your datasource, create/update/delete etc.
   - [OpenAPI documentation](https://datasource.docs.production.reelevant.dev/)
   - [NPM package](https://www.npmjs.com/package/@rlvt/datasources-openapi-client)
+- blocks
+  - This client allows you to interact with blocks (block themselves, block's content and block's group)
+  - [OpenAPI documentation](https://block.docs.production.reelevant.dev/)
+  - [NPM package](https://www.npmjs.com/package/@rlvt/blocks-openapi-client)
 - entity-manager
   - This client allows you to interact with non-specific entities used across our platform (ex: companies, users etc)
   - [OpenAPI documentation](https://entity-manager.docs.production.reelevant.dev/)
