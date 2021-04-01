@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@rlvt/blocks-openapi-client": "^0.0.0-32204e8",
+    "@rlvt/blocks-openapi-client": "^0.0.0-697bade",
     "@rlvt/openapi-client-utils": "^0.1.0"
   },
   "devDependencies": {

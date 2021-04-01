@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@rlvt/blocks-openapi-client@^0.0.0-32204e8":
-  version "0.0.0-32204e8"
-  resolved "https://registry.yarnpkg.com/@rlvt/blocks-openapi-client/-/blocks-openapi-client-0.0.0-32204e8.tgz#8f49424a88e33007be01f8f86dafe43085820f97"
-  integrity sha512-6MBByrWCr0H9HHcbWIF8HJB4R2a8eC5FPYRN2QWg0B1ewb+gFxIsLUJtLPhIBOOttFZv7FELC0AVUVpRkBmJRw==
+"@rlvt/blocks-openapi-client@^0.0.0-697bade":
+  version "0.0.0-697bade"
+  resolved "https://registry.yarnpkg.com/@rlvt/blocks-openapi-client/-/blocks-openapi-client-0.0.0-697bade.tgz#79778144fe51673cd5d2e62b7390709919ee5769"
+  integrity sha512-cM6QAO9wF2mm7YRILnnW9h9lXEh8bNjmh2G45VieZt1TTgnIZ/rmbQkEnb+P5y+R5Qihc8JkM7fjn0mM3BM9Qw==
   dependencies:
     axios "^0.21.1"
 
