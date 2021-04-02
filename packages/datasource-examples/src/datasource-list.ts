@@ -1,8 +1,8 @@
 
 import DatasourceSDK from '@rlvt/datasources-openapi-client'
-import setupClient, { ClientType } from '@rlvt/openapi-client-utils'
+import { createClient, ClientType } from '@rlvt/openapi-client-utils'
 
-const sdk = new DatasourceSDK(setupClient({
+const sdk = new DatasourceSDK(createClient({
   type: ClientType.DATASOURCES,
   authenticationType: {
     grantType: 'refresh_token',

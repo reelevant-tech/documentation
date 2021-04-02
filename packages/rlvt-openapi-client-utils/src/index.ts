@@ -51,7 +51,7 @@ const createAxiosClient = (options: getClientOptions) => {
 
 export * from './types'
 
-export default (_options: Partial<getClientOptions> & { type: ClientType }) => {
+export const createClient = (_options: Partial<getClientOptions> & { type: ClientType }) => {
   const options = Object.assign(clientDefaults, _options)
   return createAxiosClient(options)
 }

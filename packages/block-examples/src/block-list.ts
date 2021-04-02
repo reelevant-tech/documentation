@@ -1,8 +1,8 @@
 
-import setupClient, { ClientType } from '@rlvt/openapi-client-utils'
+import { createClient, ClientType } from '@rlvt/openapi-client-utils'
 import BlockSDK from '@rlvt/blocks-openapi-client'
 
-const blockSDK = new BlockSDK(setupClient({
+const blockSDK = new BlockSDK(createClient({
   type: ClientType.BLOCKS,
   authenticationType: {
     grantType: 'refresh_token',
