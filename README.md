@@ -4,19 +4,19 @@ This repository host the documentation for our APIs. Most of our APIs have SDKs 
 
 Here are the different SDKs and their corresponding API:
 - datasources
-  - This client allows to interact with your datasource, create/update/delete etc.
+  - This APIs allows to interact with your datasource, create/update/delete etc.
   - [OpenAPI documentation](https://datasource.docs.production.reelevant.dev/)
   - [OpenAPI definition](https://datasource-openapi.docs.production.reelevant.dev/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/datasources-openapi-client)
   - Production base URL: `https://api.reelevant.com/v2/datasources/`
 - blocks
-  - This client allows you to interact with blocks (block themselves, block's content and block's group)
+  - This APIs allows you to interact with blocks (block themselves, block's content and block's group)
   - [OpenAPI documentation](https://block.docs.production.reelevant.dev/)
   - [OpenAPI definition](https://block-openapi.docs.production.reelevant.dev/v1/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/blocks-openapi-client)
   - Production base URL: `https://api.reelevant.com/`
 - entity-manager
-  - This client allows you to interact with non-specific entities used across our platform (ex: companies, users etc)
+  - This APIs allows you to interact with non-specific entities used across our platform (ex: companies, users etc)
   - [OpenAPI documentation](https://entity-manager.docs.production.reelevant.dev/)
   - [OpenAPI definition](https://entity-manager-openapi.docs.production.reelevant.dev/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/entity-manager-openapi-client)
@@ -55,7 +55,8 @@ After getting a valid `access_token`, you'll need to add it for every call to th
 
 As said before our gateway is available at `https://api.reelevant.com/` however each API is exposed in different paths:
 - Datasource is available at `https://api.reelevant.com/v2/datasources/` (if you'd want to list datasources, the endpoint would be `GET https://api.reelevant.com/v2/datasources/`)
-- Block is available at `https://api.rellevant.com/` (if you'd want to list the blocks, the endpoint would be `GET https://api.reelevant.com/v1/blocks`)
+- Block is available at `https://api.reelevant.com/` (if you'd want to list the blocks, the endpoint would be `GET https://api.reelevant.com/v1/blocks`)
+- Entity is available at `https://api.reelevant.com/v2/entity/` (if you'd want to list users in your company, the endpoint would be `GET https://api.reelevant.com/v2/entity/users/`)
 
 # Typescript/Javascript Usage
 
