@@ -2,7 +2,6 @@ import { ClientType, getClientOptions } from './types'
 import axios from 'axios'
 import { Tokens } from './types'
 import type { SerializedUser } from '@rlvt/entity-manager-openapi-client'
-import { URLSearchParams } from 'url'
 
 export const basePathForClient: Record<keyof typeof ClientType, string> = {
   [ClientType.BLOCKS]: '/',
@@ -28,10 +27,7 @@ type ExchangeToken = {
 }
 
 const tokenAuth = async (endpoint: string, refreshToken: string): Promise<Tokens> => {
-  const params = new URLSearchParams()
-  params.append('refresh_token', refreshToken)
-  params.append('grant_type', 'refresh_token')
-  const tokens = await standaloneAxios.post<ExchangeToken>(endpoint, params, {
+  const tokens = await standaloneAxios.post<ExchangeToken>(endpoint, `refresh_token=${refreshToken}&grant_type=refresh_token`, {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
@@ -40,11 +36,7 @@ const tokenAuth = async (endpoint: string, refreshToken: string): Promise<Tokens
 }
 
 const passwordAuth = async (endpoint: string, email: string, password: string): Promise<Tokens> => {
-  const params = new URLSearchParams()
-  params.append('username', email)
-  params.append('password', password)
-  params.append('grant_type', 'password')
-  const tokens = await standaloneAxios.post<ExchangeToken>(endpoint, params, {
+  const tokens = await standaloneAxios.post<ExchangeToken>(endpoint, `username=${email}&password=${password}&grant_type=password`, {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
