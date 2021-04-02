@@ -6,14 +6,17 @@ Here are the different SDKs and their corresponding API:
 - datasources
   - This client allows to interact with your datasource, create/update/delete etc.
   - [OpenAPI documentation](https://datasource.docs.production.reelevant.dev/)
+  - [OpenAPI definition](https://datasource-openapi.docs.production.reelevant.dev/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/datasources-openapi-client)
 - blocks
   - This client allows you to interact with blocks (block themselves, block's content and block's group)
   - [OpenAPI documentation](https://block.docs.production.reelevant.dev/)
+  - [OpenAPI definition](https://block-openapi.docs.production.reelevant.dev/v1/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/blocks-openapi-client)
 - entity-manager
   - This client allows you to interact with non-specific entities used across our platform (ex: companies, users etc)
   - [OpenAPI documentation](https://entity-manager.docs.production.reelevant.dev/)
+  - [OpenAPI definition](https://entity-manager-openapi.docs.production.reelevant.dev/openapi)
   - [NPM package](https://www.npmjs.com/package/@rlvt/entity-manager-openapi-client)
 
 **IMPORTANT**: Since those SDKs are not stable we don't use any versioning and use a specific channel `beta` to publish update. We'll setup a proper versionning when the underlying APIs become stable.
