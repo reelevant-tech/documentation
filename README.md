@@ -62,8 +62,7 @@ As said before our gateway is available at `https://api.reelevant.com/` however 
 
 Each SDKs only contains endpoint and types definitions for its specific API so it doesn't handle authentication. The package `@rlvt/openapi-client-utils` exists to correctly setup each SDKs, its default export return an `axios` instance that you can give to the SDK you want to use.
 
-
-Here are an example):
+Here are an example:
 ```ts
 import DatasourceSDK from '@rlvt/datasources-openapi-client'
 import setupClient, { ClientType } from '@rlvt/openapi-client-utils'
@@ -74,7 +73,7 @@ const sdk = new DatasourceSDK(setupClient({
   // see above for detail about authentication method
   // but you can either use `grantType: refresh_token` or `grantType: password`
   authenticationType: {
-    grantType: 'refresh_token',
+    type: 'refresh_token',
     refreshToken: process.env.REFRESH_TOKEN as string
   }
 }))

@@ -5,7 +5,7 @@ import BlockSDK from '@rlvt/blocks-openapi-client'
 const blockSDK = new BlockSDK(createClient({
   type: ClientType.BLOCKS,
   authenticationType: {
-    grantType: 'refresh_token',
+    type: 'refresh_token',
     refreshToken: process.env.REFRESH_TOKEN as string
   }
 }))
