@@ -29,14 +29,18 @@ export type Tokens = {
 }
 
 type PasswordGrantType = {
-  grantType: 'password'
+  type: 'password'
   email: string
   password: string
 }
 
 type TokenGrantType = {
-  grantType: 'refresh_token',
+  type: 'refresh_token',
   refreshToken: string
 }
 
-export type AuthenticationType = PasswordGrantType | TokenGrantType
+type CrossSiteType = {
+  type: 'cross_site'
+}
+
+export type AuthenticationType = PasswordGrantType | TokenGrantType | CrossSiteType

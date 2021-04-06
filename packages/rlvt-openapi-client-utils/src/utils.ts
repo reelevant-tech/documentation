@@ -55,7 +55,7 @@ export const clientDefaults: getClientOptions = {
     }
   },
   onAuthenticationRequired: async ({ currentTokens, options, request }) => {
-    switch (options.authenticationType.grantType) {
+    switch (options.authenticationType.type) {
       case 'password': {
         if (currentTokens.refreshToken === undefined) {
           return passwordAuth(`${options.gatewayEndpoint}/v1/auth/token`, options.authenticationType.email, options.authenticationType.password)
@@ -68,6 +68,9 @@ export const clientDefaults: getClientOptions = {
         }
         return tokenAuth(`${options.gatewayEndpoint}/v1/auth/token`, currentTokens.refreshToken)
       }
+      case 'cross_site': {
+        throw new Error(`Please relog within Reelevant app to refresh cross site authentication`)
+      }
       default: {
         throw new Error(`Unknown authentication type: ${options.authenticationType}`)
       }
@@ -77,7 +80,6 @@ export const clientDefaults: getClientOptions = {
     console.log(`Logged within Reelevant with account ${profile.email}`)
   },
   authenticationType: {
-    grantType: 'refresh_token',
-    refreshToken: '__fake__'
+    type: 'cross_site'
   }
 }

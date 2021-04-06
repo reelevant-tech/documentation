@@ -8,11 +8,13 @@ import { basePathForClient, verifyTokenValidity, standaloneAxios, clientDefaults
 const createAxiosClient = (options: getClientOptions) => {
   // store current tokens used by this client
   const currentTokens: Partial<Tokens> = {
-    refreshToken: options.authenticationType?.grantType === 'refresh_token' ? options.authenticationType.refreshToken : undefined
+    refreshToken: options.authenticationType?.type === 'refresh_token' ? options.authenticationType.type : undefined
   }
   // create specific axios instance for this client
   const axiosInstance = axios.create({
-    baseURL: `${options.gatewayEndpoint}${basePathForClient[options.type]}`
+    baseURL: `${options.gatewayEndpoint}${basePathForClient[options.type]}`,
+    // if authentication type is cross site, that means we expect user to be already logged
+    withCredentials: options.authenticationType.type === 'cross_site'
   })
   axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
     config.headers = Object.assign(config.headers, {
