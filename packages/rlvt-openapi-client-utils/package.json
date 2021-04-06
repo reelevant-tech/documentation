@@ -1,6 +1,6 @@
 {
   "name": "@rlvt/openapi-client-utils",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Utils for Reelevant OpenAPI clients",
   "main": "build/index.js",
   "scripts": {
