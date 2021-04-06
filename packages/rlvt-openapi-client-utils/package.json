@@ -10,6 +10,9 @@
     "prepublish": "yarn build"
   },
   "keywords": [],
+  "publishconfig": {
+    "access": "public"
+  },
   "author": "Reelevant",
   "devDependencies": {
     "@rlvt/entity-manager-openapi-client": "^0.0.0-233ce98",
